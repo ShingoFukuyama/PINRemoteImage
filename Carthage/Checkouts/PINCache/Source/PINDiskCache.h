@@ -26,7 +26,7 @@ typedef NS_ENUM(NSInteger, PINDiskCacheError) {
 /**
  A callback block which provides the cache, key and object as arguments
  */
-typedef void (^PINDiskCacheObjectBlock)(PINDiskCache *cache, NSString *key, id <NSCoding>  _Nullable object);
+typedef void (^PINDiskCacheObjectBlock)(id<PINCaching> cache, NSString *key, id <NSCoding>  _Nullable object);
 
 /**
  A callback block which provides the key and fileURL of the object
@@ -572,7 +572,7 @@ PIN_SUBCLASSING_RESTRICTED
 /**
  A callback block which provides only the cache as an argument
  */
-typedef void (^PINDiskCacheBlock)(PINDiskCache *cache);
+typedef void (^PINDiskCacheBlock)(id<PINCaching> cache);
 
 @interface PINDiskCache (Deprecated)
 - (void)lockFileAccessWhileExecutingBlock:(nullable PINCacheBlock)block __attribute__((deprecated));
